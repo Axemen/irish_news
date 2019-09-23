@@ -1,3 +1,5 @@
 /resources_unzipped
 /.ipynb_checkpoints
 /__pycache__
+irish_headlines_clean.csv
+irishtimes-date-text.csv
