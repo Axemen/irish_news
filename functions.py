@@ -1,4 +1,6 @@
 import tqdm
+import seaborn as sns
+from pandas import Series
 
 def standardize_word(word: str) -> str:
     '''
@@ -31,3 +33,15 @@ def count_words(input_list: list) -> dict:
         except AttributeError:
             continue
     return word_counts
+
+
+def bar_words(word_counts: dict, n=10) -> None:
+    '''
+    Takes in a dictionary of words and returns a barchart of the top n words sorted in descending order. 
+    '''
+
+    series = Series(list(word_counts.values()), list(word_counts.keys())).sort_values(ascending=False)
+
+    fig = sns.barplot(x=series[:n].values, y=series[:n].index)
+
+    return fig
